@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello!</title>
+    <meta name="description" content="description"/>
+    <meta name="author" content="author" />
+    <meta name="keywords" content="keywords" />
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+    <style type="text/css">.body { width: auto; }</style>
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  </head>
+  <body>
+  
+	<div class="main-container" style="display: flex; flex-direction: column">
+		<img class="winning-screen" src="winningscreen.png">
+	</div>
+
+    <script src="jquery-3.7.0.min.js" type="text/javascript"></script>
+	
+
+	<script>
+
+	let answers = [];
+
+	function pooClick(pooType){
+
+		var audio = new Audio('sound'+pooType+'.wav');
+		audio.play();
+
+		if(answers.includes(pooType))
+			return;
+		
+		answers.push(pooType);
+		$('#' + pooType).addClass('selected');
+		
+		if(answers.length === 7)
+		{
+			if(evaluate())
+			{
+			
+				setTimeout(function(){window.location.href = 'file:///C:/Repos/BristolStoolQuiz/BristolStoolQuiz/index3.html'; }, 2000); 
+			}
+			else{
+				$('.main-container').addClass('gameover');
+				reset();
+			}
+		}
+			
+		
+		console.log(answers);
+	}
+	
+	function reset(){
+			$('#1').removeClass('selected');
+			$('#2').removeClass('selected');
+			$('#3').removeClass('selected');
+			$('#4').removeClass('selected');
+			$('#5').removeClass('selected');
+			$('#6').removeClass('selected');
+			$('#7').removeClass('selected');
+			answers = [];
+			
+			setTimeout(function(){$('.main-container').removeClass('gameover')}, 2000);
+	}
+	
+	function evaluate(){
+	
+	     correctAnswers = [1,2,3,4,5,6,7];
+		 
+		  for (var i = 0; i < answers.length; ++i) {
+			if (answers[i] !== correctAnswers[i]) return false;
+		  }
+		  
+		  return true;
+ 
+	}
+	
+	</script>
+
+  </body>
+</html>

@@ -1,0 +1,39 @@
+
+
+.main-container{
+	padding-top: 5vh;
+    height: calc(100vh - 100px);
+    box-sizing: border-box;
+	justify-content: center;
+	align-items: center;
+}
+
+.poo-image{
+ height: calc((70vh)  / 7);
+ width: 70%;
+ margin-top: 2vh;
+}
+
+.selected{
+	border: solid 2px brown;
+	border-radius: 10px;
+	animation: jello; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 0.8s; 
+  border-style: inset;
+}
+
+.gameover{
+	animation: tada; /* referring directly to the animation's @keyframe declaration */
+	animation-duration: 1s; 
+}
+
+.winner{
+	animation: flip; /* referring directly to the animation's @keyframe declaration */
+	animation-duration: 2s;
+}
+
+.winning-screen{
+	max-height: 100%;
+	animation: rotateIn; /* referring directly to the animation's @keyframe declaration */
+	animation-duration: 2s;
+}
